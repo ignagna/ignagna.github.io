@@ -1,0 +1,609 @@
+
+<!-- saved from url=(0032)https://dj.web0533.cn/index/map/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./map_files/layui.css">
+    <link rel="stylesheet" href="./map_files/mdui.min.css">
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		#btngp
+		{
+			position: absolute;
+			left: 10px;
+			bottom: 15px;
+			z-index: 999;
+		}
+      #logi
+      {
+          position: absolute;
+			right: 60px;
+			bottom: 15px;
+			z-index: 999;
+      }
+       #daohang
+      {
+        position: absolute;
+			top:0px;
+            width:100%;
+            text-align:center;
+			z-index: 999;
+      }
+		#btngp button{
+			margin-bottom: 5px;
+		}
+		.popbox
+		{
+			position: fixed;
+			height: 220px;
+			width: 90%;
+			bottom: 10px;
+			z-index: 999999;
+			background: #fff;
+			left: 5%;
+			display: none;
+		}
+	</style>
+	<script src="./map_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./map_files/api"></script><script type="text/javascript" src="./map_files/getscript"></script>
+	<title>淄川党建地图</title>
+<style type="text/css">.BMap_mask{background:transparent url(https://api.map.baidu.com/images/blank.gif);}.BMap_noscreen{display:none;}.BMap_button{cursor:pointer;}.BMap_zoomer{background-image:url(https://api.map.baidu.com/images/mapctrls1d3.gif);background-repeat:no-repeat;overflow:hidden;font-size:1px;position:absolute;width:7px;height:7px;}.BMap_stdMpCtrl div{position:absolute;}.BMap_stdMpPan{width:44px;height:44px;overflow:hidden;background:url(https://api.map.baidu.com/images/mapctrls2d0.png) no-repeat;}.BMap_ie6 .BMap_stdMpPan{background:none;}.BMap_ie6 .BMap_smcbg{left:0;width:44px;height:464px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://api.map.baidu.com/images/mapctrls2d0.png");}.BMap_ie6 .BMap_stdMpPanBg{z-index:-1;}.BMap_stdMpPan .BMap_button{height:15px;width:15px;}.BMap_panN,.BMap_panW,.BMap_panE,.BMap_panS{overflow:hidden;}.BMap_panN{left:14px;top:0;}.BMap_panW{left:1px;top:12px;}.BMap_panE{left:27px;top:12px;}.BMap_panS{left:14px;top:25px;}.BMap_stdMpZoom{top:45px;overflow:hidden;}.BMap_stdMpZoom .BMap_button{width:22px;height:21px;left:12px;overflow:hidden;background-image:url(https://api.map.baidu.com/images/mapctrls2d0.png);background-repeat:no-repeat;z-index:10;}.BMap_ie6 .BMap_stdMpZoom .BMap_button{background:none;}.BMap_stdMpZoomIn{background-position:0 -221px;}.BMap_stdMpZoomOut{background-position:0 -265px;}.BMap_ie6 .BMap_stdMpZoomIn div{left:0;top:-221px;}.BMap_ie6 .BMap_stdMpZoomOut div{left:0;top:-265px;}.BMap_stdMpType4 .BMap_stdMpZoom .BMap_button{left:0;overflow:hidden;background:-webkit-gradient(linear,50% 0,50% 100%,from(rgba(255,255,255,0.85)),to(rgba(217,217,217,0.85)));z-index:10;-webkit-border-radius:22px;width:34px;height:34px;border:1px solid rgba(255,255,255,0.5);-webkit-box-shadow:0 2px 3.6px #CCC;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-sizing:border-box;}.BMap_stdMpType4 .BMap_smcbg{position:static;background:url(https://api.map.baidu.com/images/mapctrls2d0_mb.png) 0 0 no-repeat;-webkit-background-size:24px 32px;}.BMap_stdMpType4 .BMap_stdMpZoomIn{background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomIn .BMap_smcbg{width:24px;height:24px;background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomOut{background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomOut .BMap_smcbg{width:24px;height:6px;background-position:0 -25px;}.BMap_stdMpSlider{width:37px;top:18px;}.BMap_stdMpSliderBgTop{left:18px;width:10px;overflow:hidden;background:url(https://api.map.baidu.com/images/mapctrls2d0.png) no-repeat -23px -226px;}.BMap_stdMpSliderBgBot{left:19px;height:8px;width:10px;top:124px;overflow:hidden;background:url(https://api.map.baidu.com/images/mapctrls2d0.png) no-repeat -33px bottom;}.BMap_ie6 .BMap_stdMpSliderBgTop,.BMap_ie6 .BMap_stdMpSliderBgBot{background:none;}.BMap_ie6 .BMap_stdMpSliderBgTop div{left:-23px;top:-226px;}.BMap_ie6 .BMap_stdMpSliderBgBot div{left:-33px;bottom:0;}.BMap_stdMpSliderMask{height:100%;width:24px;left:10px;cursor:pointer;}.BMap_stdMpSliderBar{height:11px;width:19px;left:13px;top:80px;overflow:hidden;background:url(https://api.map.baidu.com/images/mapctrls2d0.png) no-repeat 0 -309px;}.BMap_stdMpSliderBar.h{background:url(https://api.map.baidu.com/images/mapctrls2d0.png) no-repeat 0 -320px;}.BMap_ie6 .BMap_stdMpSliderBar,.BMap_ie6 .BMap_stdMpSliderBar.h{background:none;}.BMap_ie6 .BMap_stdMpSliderBar div{top:-309px;}.BMap_ie6 .BMap_stdMpSliderBar.h div{top:-320px;}.BMap_zlSt,.BMap_zlCity,.BMap_zlProv,.BMap_zlCountry{position:absolute;left:34px;height:21px;width:28px;background-image:url(https://api.map.baidu.com/images/mapctrls2d0.png);background-repeat:no-repeat;font-size:0;cursor:pointer;}.BMap_ie6 .BMap_zlSt,.BMap_ie6 .BMap_zlCity,.BMap_ie6 .BMap_zlProv,.BMap_ie6 .BMap_zlCountry{background:none;overflow:hidden;}.BMap_zlHolder{display:none;position:absolute;top:0;}.BMap_zlHolder.hvr{display:block;}.BMap_zlSt{background-position:0 -380px;top:21px;}.BMap_zlCity{background-position:0 -401px;top:52px;}.BMap_zlProv{background-position:0 -422px;top:76px;}.BMap_zlCountry{background-position:0 -443px;top:100px;}.BMap_ie6 .BMap_zlSt div{top:-380px;}.BMap_ie6 .BMap_zlCity div{top:-401px;}.BMap_ie6 .BMap_zlProv div{top:-422px;}.BMap_ie6 .BMap_zlCountry div{top:-443px;}.BMap_stdMpType1 .BMap_stdMpSlider,.BMap_stdMpType2 .BMap_stdMpSlider,.BMap_stdMpType3 .BMap_stdMpSlider,.BMap_stdMpType4 .BMap_stdMpSlider,.BMap_stdMpType2 .BMap_stdMpZoom,.BMap_stdMpType3 .BMap_stdMpPan,.BMap_stdMpType4 .BMap_stdMpPan{display:none;}.BMap_stdMpType3 .BMap_stdMpZoom{top:0;}.BMap_stdMpType4 .BMap_stdMpZoom{top:0;}.BMap_cpyCtrl a{font-size:11px;color:#7979CC;}.BMap_scaleCtrl{height:23px;overflow:hidden;}.BMap_scaleCtrl div.BMap_scaleTxt{font-size:11px;font-family:Arial,sans-serif;}.BMap_scaleCtrl div{position:absolute;overflow:hidden;}.BMap_scaleHBar img,.BMap_scaleLBar img,.BMap_scaleRBar img{position:absolute;width:37px;height:442px;left:0;}.BMap_scaleHBar{width:100%;height:5px;font-size:0;bottom:0;}.BMap_scaleHBar img{top:-437px;width:100%;}.BMap_scaleLBar,.BMap_scaleRBar{width:3px;height:9px;bottom:0;font-size:0;z-index:1;}.BMap_scaleLBar img{top:-427px;left:0;}.BMap_scaleRBar img{top:-427px;left:-5px;}.BMap_scaleLBar{left:0;}.BMap_scaleRBar{right:0;}.BMap_scaleTxt{text-align:center;width:100%;cursor:default;line-height:18px;}.BMap_omCtrl{background-color:#fff;overflow:hidden;}.BMap_omOutFrame{position:absolute;width:100%;height:100%;left:0;top:0;}.BMap_omInnFrame{position:absolute;border:1px solid #999;background-color:#ccc;overflow:hidden;}.BMap_omMapContainer{position:absolute;overflow:hidden;width:100%;height:100%;left:0;top:0;}.BMap_omViewMv{border-width:1px;border-style:solid;border-left-color:#84b0df;border-top-color:#adcff4;border-right-color:#274b8b;border-bottom-color:#274b8b;position:absolute;z-index:600;}.BMap_omViewInnFrame{border:1px solid #3e6bb8;}.BMap_omViewMask{width:1000px;height:1000px;position:absolute;left:0;top:0;background-color:#68c;opacity:.2;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=20);}.BMap_omBtn{height:13px;width:13px;position:absolute;cursor:pointer;overflow:hidden;background:url(https://api.map.baidu.com/images/mapctrls1d3.gif) no-repeat;z-index:1210;}.anchorBR .BMap_omOutFrame{border-top:1px solid #999;border-left:1px solid #999;}.quad4 .BMap_omBtn{background-position:-26px -27px;}.quad4 .BMap_omBtn.hover{background-position:0 -27px;}.quad4 .BMap_omBtn.BMap_omBtnClosed{background-position:-39px -27px;}.quad4 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-13px -27px;}.anchorTR .BMap_omOutFrame{border-bottom:1px solid #999;border-left:1px solid #999;}.quad1 .BMap_omBtn{background-position:-39px -41px;}.quad1 .BMap_omBtn.hover{background-position:-13px -41px;}.quad1 .BMap_omBtn.BMap_omBtnClosed{background-position:-26px -41px;}.quad1 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:0 -41px;}.anchorBL .BMap_omOutFrame{border-top:1px solid #999;border-right:1px solid #999;}.quad3 .BMap_omBtn{background-position:-27px -40px;}.quad3 .BMap_omBtn.hover{background-position:-1px -40px;}.quad3 .BMap_omBtn.BMap_omBtnClosed{background-position:-40px -40px;}.quad3 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-14px -40px;}.anchorTL .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;}.quad2 .BMap_omBtn{background-position:-40px -28px;}.quad2 .BMap_omBtn.hover{background-position:-14px -28px;}.quad2 .BMap_omBtn.BMap_omBtnClosed{background-position:-27px -28px;}.quad2 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-1px -28px;}.anchorR .BMap_omOutFrame{border-bottom:1px solid #999;border-left:1px solid #999;border-top:1px solid #999;}.anchorL .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;border-top:1px solid #999;}.anchorB .BMap_omOutFrame{border-top:1px solid #999;border-left:1px solid #999;border-right:1px solid #999;}.anchorT .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;border-left:1px solid #999;}.anchorNon .BMap_omOutFrame,.withOffset .BMap_omOutFrame{border:1px solid #999;}.BMap_zoomMask0,.BMap_zoomMask1{position:absolute;left:0;top:0;width:100%;height:100%;background:transparent url(https://api.map.baidu.com/images/blank.gif);z-index:1000;}.BMap_contextMenu{position:absolute;border-top:1px solid #adbfe4;border-left:1px solid #adbfe4;border-right:1px solid #8ba4d8;border-bottom:1px solid #8ba4d8;padding:0;margin:0;width:auto;visibility:hidden;background:#fff;z-index:10000000;}.BMap_cmShadow{position:absolute;background:#000;opacity:.3;filter:alpha(opacity=30);visibility:hidden;z-index:9000000;}div.BMap_cmDivider{border-bottom:1px solid #adbfe4;font-size:0;padding:1px;margin:0 6px;}div.BMap_cmFstItem{margin-top:2px;}div.BMap_cmLstItem{margin-bottom:2px;}.BMap_shadow img{border:0 none;margin:0;padding:0;height:370px;width:1144px;}.BMap_pop .BMap_top{border-top:1px solid #ababab;background-color:#fff;}.BMap_pop .BMap_center{border-left:1px solid #ababab;border-right:1px solid #ababab;background-color:#fff;}.BMap_pop .BMap_bottom{border-bottom:1px solid #ababab;background-color:#fff;}.BMap_shadow,.BMap_shadow img,.BMap_shadow div{-moz-user-select:none;-webkit-user-select:none;}.BMap_checkbox{background:url(https://api.map.baidu.com/images/mapctrls1d3.gif);vertical-align:middle;display:inline-block;width:11px;height:11px;margin-right:4px;background-position:-14px 90px;}.BMap_checkbox.checked{background-position:-2px 90px;}.BMap_pop .BMap_top img,.BMap_pop .BMap_center img,.BMap_pop .BMap_bottom img{display:none;}@media print{.BMap_noprint{display:none;}.BMap_noscreen{display:block;}.BMap_mask{background:none;}.BMap_pop .BMap_top img,.BMap_pop .BMap_center img,.BMap_pop .BMap_bottom img{display:block;}}.BMap_vectex{cursor:pointer;width:11px;height:11px;position:absolute;background-repeat:no-repeat;background-position:0 0;}.BMap_vectex_nodeT{background-image:url(https://api.map.baidu.com/images/nodeT.gif);}.BMap_vectex_node{background-image:url(https://api.map.baidu.com/images/node.gif);}.iw{width:100%;-webkit-box-sizing:border-box;border:.3em solid transparent;-webkit-background-clip:padding;}.iw_rt{position:relative;height:46px;width:195px;-webkit-box-sizing:border-box;display:-webkit-box;-webkit-box-align:center;margin:2px 5px 0 2px;background-color:rgba(0,0,0,0.8);-webkit-box-shadow:2px 2px 7px rgba(0,0,0,0.3);-webkit-border-radius:2px;color:#fff;}.iw_rt:after{content:"";position:absolute;left:50%;bottom:-8px;width:0;height:0;border-left:5px solid transparent;border-top:8px solid rgba(0,0,0,0.8);border-right:5px solid transparent;margin:0 0 0 -6px;}.iw_s{text-align:center;vertical-align:middle;height:100%;-webkit-box-sizing:border-box;}.iw_rt .iw_s1{color:#cbcbcb;}.iw_rt b{color:#fff;font-weight:bold;}.iw_rt_gr{margin-left:-4px;}.iw_busline{margin:32px 0 0 -3px;}.iw_busline .iw_cc{text-align:center;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;padding:0 6px;}.iw_r{-webkit-box-ordinal-group:3;}.iw_r,.iw_l{height:100%;font-size:4.5em;text-align:center;color:#747474;border:none;-webkit-box-sizing:border-box;-webkit-border-radius:0;line-height:.7em;border:1px solid rgba(255,255,255,0.2);width:41px;}.iw_r{border-style:none none none solid;}.iw_l{border-style:none solid none none;}.iw_search,.iw_l{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAlCAYAAAAuqZsAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ bWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6 eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNl SUQ9InhtcC5paWQ6QjA3NjMyREJDNzQ2MTFFMTlBQUM5QzlCRDZGODZCQkYiIHhtcE1NOkRvY3Vt ZW50SUQ9InhtcC5kaWQ6QjA3NjMyRENDNzQ2MTFFMTlBQUM5QzlCRDZGODZCQkYiPiA8eG1wTU06 RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMDc2MzJEOUM3NDYxMUUxOUFB QzlDOUJENkY4NkJCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMDc2MzJEQUM3NDYxMUUx OUFBQzlDOUJENkY4NkJCRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1w bWV0YT4gPD94cGFja2V0IGVuZD0iciI/PllB9T8AAAKuSURBVHjaxFjRcdpAEAX+mVEqiFxB5AoQ HZAKElcArsBWBSgVQCoAVwCuwEoFlivwGQpI7jKrzGXn7ep0EsPO7BjLp/O73bdv9xifTqdRpCXW c+sz65n1lNy3mvzZemX9aN34C6bTKdx8HAHMgVlaX0QeaGv9J4EcBJgD9EA/hzAH7N4Cq/oAW1tf KX+vKEXP7PlMSLFvhQX32BWY49GBOIRO7FKy57wBlnoUQHu5yJX+g4mymdvgFWzkAM3JtwGgmiJw a2/pvQoEYBQCLKNI8RfuaeNjT245gAUdqgHdmkqUPiOctLdJVYkithkAVO/K5cC+M30KAZVSxboo /ybnn1eIR5r5qUyI7P4GX6nqJHskbQsxQ7wqu6aSn2qrgHLrXjqAat5ZC0WlRuzVE0J3uhtBCjRt a3qjX92JIMiOIqYtYgumzpo+7RRtu/E0zvknokMF5GgdQv4Ze/5DWL8CFVe2aNuedGsLCi1vS+WL F4WKNkL2Dnh414FnO1b1R5vKuRaxjKUF2YKBqjuCGtF6nyL5+XxOJWCcL2/CpjzdRYRuGpDShQQs ARUj9U/OnRh7Yr9/CW1JXU4fYxXoHIMCu+iB+gBLIt/LgShDYCYktGCDfCBgvyRgVQgZwTy/jIzy EnQNMZV1QCT4bJ+3XFCkS81/WijdkiYAdSak04BWtabWEmIbsNZYgU00YE+gjyErQeo31GpShVMH Yc+/dwsEzh97/D6ojT2ZMlM1XwN8WP9Ma7NAbZvbtBoEjE+jBT2TusCu5SIbI7z/wLWN1rdKi0o6 cqwTuAmYyTm5NQW/82atWvlnBbo7apxD98qDJxl7mkC76JQ2Qm0CI1xKF95Gb4oLXHJDwJlxjy/u LgruGtNFM8lqnNtfK2JqN3CVeW1gzWj9jThd0xd59R8BBgAAiefGO1Bt1gAAAABJRU5ErkJggg==") no-repeat 50% 50%;-webkit-background-size:19px 19px;}.iw_line_s,.iw_r{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAmCAYAAABDClKtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ bWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6 eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNl SUQ9InhtcC5paWQ6QjA3NjMyREZDNzQ2MTFFMTlBQUM5QzlCRDZGODZCQkYiIHhtcE1NOkRvY3Vt ZW50SUQ9InhtcC5kaWQ6QjA3NjMyRTBDNzQ2MTFFMTlBQUM5QzlCRDZGODZCQkYiPiA8eG1wTU06 RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMDc2MzJEREM3NDYxMUUxOUFB QzlDOUJENkY4NkJCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMDc2MzJERUM3NDYxMUUx OUFBQzlDOUJENkY4NkJCRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1w bWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqheQ+MAAAEtSURBVHja7JftDYIwEIbB8JeEUXACZQPd oGygE+gGxAnQEZzAOgEdwREIDKBXUgjBIqW5Npj0kvcHpG0erveFX1WVZ8l2oBhEhRoLw/BroW8J KgeR3vMVlI5BrSwAHQZAnngmYxtMe4oIL41ZAp6iNqF4/BQTa0oBxmxAcaAHKFJY+wKtAaw0CRUJ oHjGHiY8VpqCKmYCdRkJUKmJ7Ms1gZqkqOs6w/bUGXRCOGePCcXjaItwDsW8PoZ0zhM70IeeyiZi jH/Isf+CF9MAOdCppDj+LJ6yim6j9802B6VqQa818BFjY6AHakHp9Crj15ctCaiFIi7Q/wCKLRHq vjSoVNKWunH4rTBDv5Cv7NKeKfvvU2nINzHAuexzUA7KQTkoB6UxDicKvc+qfQQYABaiUBxugCsr AAAAAElFTkSuQmCC") no-repeat 50% 50%;-webkit-background-size:19px 19px;}.iw_line{height:64px;width:228px;padding:0 11px;line-height:20px;}.iw_bustrans .iw_cc{text-align:center;}.iw_c{color:#FFFFFF;text-decoration:none;overflow:hidden;display:-webkit-box;-webkit-box-align:center;-webkit-box-flex:1;}.iw_cc{-webkit-box-sizing:border-box;width:100%;border:none;}.gray_background{filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity: 0.5} .light_gray_background {filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity:0.7;opacity: 0.7} .panoInfoBox {cursor: pointer; } .panoInfoBox {position: relative; width: 323px; height: 101px; margin-bottom: 4px; cursor: pointer; } .panoInfoBox .panoInfoBoxTitleBg {width: 323px; height: 19px; position: absolute; left: 0; bottom: 0; z-index: 2; background-color: #000; opacity: .7; } .panoInfoBox .panoInfoBoxTitleContent {font-size: 12px; color: #fff; position: absolute; bottom: 2px; left: 5px; z-index: 3; text-decoration: none; } .RouteAddressOuterBkg{position:relative; padding: 32px 4px 4px 3px; background-color:#ffdd99; } .RouteAddressInnerBkg{padding: 3px 5px 8px 8px; background-color:#ffffff; } #RouteAddress_DIV1{margin-top: 5px; } .RouteAddressTip{position:absolute; width:100%; top:0px; text-align:center; height:30px; line-height:30px; color:#994c00; } .route_tip_con {position:absolute;top:145px;} .route_tip_con .route_tip{position:absolute;width:233px;height:29px;color:#803300;text-align:center;line-height:29px;border:#cc967a solid 1px;background:#fff2b2;z-index:100000;} .route_tip_con .route_tip span{position:absolute;top:0;right:0;_right:-1px;width:14px;height:13px;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 -121px;cursor:pointer;} .route_tip_con .route_tip_shadow{width:233px;height:29px;  position:absolute;left:1px;top:1px;background:#505050;border:1px solid #505050;opacity:0.2;filter:alpha(opacity=20)} .sel_body_body_page{margin:5px 0} .sel_n{margin-top:5px;overflow:hidden;} .sel_n .sel_top{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -418px;height:4px;font-size:0px;} .sel_n .sel_body_top{height:32px;width:100%;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 -41px;} .sel_n .sel_body_title{float:left;width:100%;height:31px;} .sel_n .sel_body_sign{margin-top:1px;width:30px;height:31px;float:left;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -79px -387px;} .sel_n .sel_body_name{height: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin:0 20px 0 30px;padding:8px 7px 7px;font-size:14px;color:#FA8722;} .sel_n .sel_body_button{float:left;width:55px;margin-left:-55px;padding-top:8px;} .sel_n .sel_body_button a{} .sel_n .sel_bottom{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -415px;height:4px;font-size:0px;} .sel_n .sel_body_body{padding:3px 0 0 0} .sel_n1{margin-top:5px;width:329px;overflow:hidden;} .sel_n1 .sel_top{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -418px;height:4px;font-size:0px;} .sel_n1 .sel_body_top{height:31px;width:100%;background:url(https://api.map.baidu.com/images/sel_body_n_top.gif) repeat-x;} .sel_n1 .sel_body_top{height:32px;width:100%;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 -41px} .sel_n1 .sel_body_title{float:left;width:100%;height:31px;cursor:pointer;} .sel_n1 .sel_body_sign{margin-top:1px;width:30px;height:31px;float:left;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -79px -387px;} .sel_n1 .sel_body_name{margin:0 20px 0 30px;padding:8px 7px 7px;font-size:14px;color:#FA8722;} .sel_n1 .sel_body_button{float:left;width:20px;height:31px;margin-left:-23px;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -253px -382px;overflow:hidden;zoom:1;cursor:pointer;} .sel_n1 .sel_body_button a{display:none;} .sel_n1 .sel_body_body{display:none} .sel_n1 .sel_bottom{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -415px;height:4px;font-size:0px;} .sel_y{margin-top:5px;overflow:hidden;} .sel_y .sel_top{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -439px;height:4px;zoom:1;font-size:0px;} .sel_y .sel_body_top{height:32px;width:100%;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 0} .sel_y .sel_body_title{float:left;width:100%;height:31px;cursor:pointer;} .sel_y .sel_body_sign{margin-top:1px;width:30px;height:31px;float:left;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -167px -384px;} .sel_y .sel_body_name{margin:0 20px 0 30px;padding:8px 7px 7px;font-size:14px;color:#5B7BCB;} .sel_y .sel_body_button{float:left;width:20px;height:31px;margin-left:-20px;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -269px -297px;cursor:pointer;} .sel_y .sel_body_button a{display:none;} .sel_y .sel_body_body{display:none;height:0px} .sel_y .sel_body_body_div{} .sel_y .sel_bottom{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -436px;height:4px;font-size:0px;} .sel_y .sel_body_body_page{display:none;height:0px;} .sel_x{margin-top:5px;width:329px;overflow:hidden;} .sel_x .sel_top{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -418px;height:4px;font-size:0px;} .sel_x .sel_body_top{height:32px;width:100%;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 -41px;} .sel_x .sel_body_title{float:left;width:100%;height:31px;} .sel_x .sel_body_sign{margin-top:1px;width:30px;height:31px;float:left;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -122px -384px;} .sel_x .sel_body_name{margin:0 20px 0 30px;padding:8px 7px 7px;font-size:14px;color:#FA8722;} .sel_x .sel_body_button{float:left;width:55px;margin-left:-55px;padding-top:8px;} .sel_x .sel_body_button a{} .sel_x .sel_body_body{} .sel_x .sel_body_body_div{padding:5px 5px 0 5px;} .sel_x .sel_bottom{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -415px;height:4px;font-size:0px;} .sel_x1{margin-top:5px;width:329px;overflow:hidden;} .sel_x1 .sel_top{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -418px;height:4px;font-size:0px;} .sel_x1 .sel_body_top{height:32px;width:100%;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat 0 -41px} .sel_x1 .sel_body_title{float:left;width:100%;height:31px;cursor:pointer;} .sel_x1 .sel_body_sign{margin-top:1px;width:30px;height:31px;float:left;background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat -122px -384px;} .sel_x1 .sel_body_name{margin:0 20px 0 30px;padding:8px 7px 7px;font-size:14px;color:#FA8722;} .sel_x1 .sel_body_button{float:left;width:55px;height:31px;margin-left:-55px;} .sel_x1 .sel_body_button a{display:none;} .sel_x1 .sel_body_body{display:none;height:0px;} .sel_x1 .sel_body_body_div{padding:5px 5px 0 5px;} .sel_x1 .sel_bottom{background:url(https://api.map.baidu.com/images/bgs.gif) no-repeat 0 -415px;height:4px;font-size:0px;} .sel_body_citylist{height:100px;padding: 0 0 0 5px} .sel_body_resitem{table-layout:fixed;overflow-x:hidden;overflow-y:hidden;} .sel_body_resitem table {margin-right:5px;} .sel_body_resitem tr{cursor:pointer;} .sel_body_resitem th{padding-top:5px;padding-left:5px;text-align:left;vertical-align:top;width:22px;} .sel_body_resitem th div.iconbg{background:url(https://api.map.baidu.com/images/markers_new_ie6.png) no-repeat scroll 0 0;height:29px;width:24px;} .sel_body_resitem th div.icon{cursor:pointer} .sel_body_resitem th div#no_0_1, .sel_body_resitem th div#no_1_1{background-position:0 -64px} .sel_body_resitem th div#no_0_2, .sel_body_resitem th div#no_1_2{background-position:-24px -64px} .sel_body_resitem th div#no_0_3, .sel_body_resitem th div#no_1_3{background-position:-48px -64px} .sel_body_resitem th div#no_0_4, .sel_body_resitem th div#no_1_4{background-position:-72px -64px} .sel_body_resitem th div#no_0_5, .sel_body_resitem th div#no_1_5{background-position:-96px -64px} .sel_body_resitem th div#no_0_6, .sel_body_resitem th div#no_1_6{background-position:-120px -64px} .sel_body_resitem th div#no_0_7, .sel_body_resitem th div#no_1_7{background-position:-144px -64px} .sel_body_resitem th div#no_0_8, .sel_body_resitem th div#no_1_8{background-position:-168px -64px} .sel_body_resitem th div#no_0_9, .sel_body_resitem th div#no_1_9{background-position:-192px -64px} .sel_body_resitem th div#no_0_10, .sel_body_resitem th div#no_1_10{background-position:-216px -64px} .sel_body_resitem td{line-height:160%;padding:3px 0 3px 3px;vertical-align:top;} .sel_body_resitem div.ra_td_title{float:left;margin-right:40px;} .sel_body_resitem div.ra_td_button{float:right; width:40px;} .sel_body_resitem div.ra_td_button input{height:18px;font-size:12px;width:40px;} .sel_body_resitem div.clear{clear:both;height:0px;width:100%;} .sel_body_resitem td .selBtn {width:70px;height:29px;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat -21px -81px;text-align:center;line-height:29px;visibility:hidden;color:#b35900;display:inline-block;*display:inline;*zoom:1;} .sel_body_resitem td .list_street_view_poi {display:inline-block;float:none;margin-right:6px;position:static;*vertical-align:-3px;_vertical-align:-5px;*display:inline;*zoom:1;} .selInfoWndBtn {width:70px;height:29px;background:url(https://api.map.baidu.com/images/addrPage.png?v=20121107) no-repeat -21px -81px;text-align:center;line-height:29px;margin: 0 auto;cursor:pointer;color:#b35900} .sel_body_body td a{text-decoration: none; cursor: auto; } .sel_body_body td a:hover,.sel_body_body td a:focus{text-decoration:underline; }.panoInfoBox{cursor:pointer}.panoInfoBox{position:relative;width:323px;height:101px;margin-bottom:4px;cursor:pointer}.panoInfoBox .panoInfoBoxTitleBg{width:323px;height:19px;position:absolute;left:0;bottom:0;z-index:2;background-color:#000;opacity:.7}.panoInfoBox .panoInfoBoxTitleContent{font-size:12px;color:#fff;position:absolute;bottom:2px;left:5px;z-index:3;text-decoration:none}.pano_switch_left,.pano_switch_right{position:absolute;width:28px;height:38px;cursor:pointer;background-color:#252525;background-color:rgba(37,37,37,.9)}.pano_switch_left{background:url(https://api.map.baidu.com/images/panorama/zuojiantou.png) no-repeat;-webkit-background-size:100% 100%;background-size:100% 100%}.pano_switch_right{background:url(https://api.map.baidu.com/images/panorama/youjiantou.png) no-repeat;-webkit-background-size:100% 100%;background-size:100% 100%}.pano_switch_left:hover{background:url(https://api.map.baidu.com/images/panorama/zuojiantou_hover.png) no-repeat;-webkit-background-size:100% 100%;background-size:100% 100%}.pano_switch_right:hover{background:url(https://api.map.baidu.com/images/panorama/youjiantou_hover.png) no-repeat;-webkit-background-size:100% 100%;background-size:100% 100%}.pano_switch_left.pano_switch_disable,.pano_switch_right.pano_switch_disable{background:0 0;border:none}.pano_poi_1,.pano_poi_2,.pano_poi_4{display:inline-block;width:16px;height:16px;vertical-align:middle;background:url(https://webmap0.bdimg.com/newmap/static/common/images/pano_whole/guide_icons_4b871b2.png) no-repeat;background-position:0 0}.pano_photo_arrow_l,.pano_photo_arrow_r{position:absolute;top:0;width:20px;height:100%;background:#f3eeee}.pano_photo_arrow_l{left:0}.pano_photo_arrow_r{right:0}.pano_arrow_l,.pano_arrow_r{display:inline-block;width:18px;height:18px;background:url(https://webmap0.bdimg.com/newmap/static/common/images/pano_whole/pano-icons_223a291.png) no-repeat}.pano_catlogLi{cursor:pointer;position:relative;line-height:10px;font-size:10px;text-align:center;color:#abb0b2;border:1px solid #53565c;padding:3px 0;margin-top:3px;margin-left:2px;width:90%}.pano_catlogLi:hover{color:#3DAAFC;border:1px solid #3DAAFC}.pano_catlogLiActive{color:#3DAAFC;border:1px solid #3DAAFC}.pano_arrow_l{background-position:0 -36px}.pano_arrow_r{background-position:-54px -36px}.pano_photo_arrow_l:hover .pano_arrow_l{background-position:-18px -36px}.pano_photo_arrow_r:hover .pano_arrow_r{background-position:-72px -36px}.pano_photo_arrow_l.pano_arrow_disable .pano_arrow_l{background-position:-36px -36px}.pano_photo_arrow_r.pano_arrow_disable .pano_arrow_r{background-position:-90px -36px}.pano_photo_item{position:relative;float:left;line-height:0;padding-left:8px}.pano_photo_decs{position:absolute;bottom:1px;left:0;padding:2px 0;text-indent:5px;margin-left:8px;display:inline-block;color:#fff;background:#000;opacity:.5;filter:alpha(opacity=50)9;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.pano_photo_item img{display:inline-block;border:solid 1px #252525}.pano_photo_item:hover img{border-color:#005efc}.pano_photo_item_seleted{position:absolute;top:0;left:-100000px;border:3px solid #097df3}.pano_close{position:absolute;right:10px;top:10px;width:40px;cursor:pointer;height:40px;line-height:40px;border-radius:3px;background-color:rgba(37,37,37,.9);background-image:url(https://api.map.baidu.com/images/panorama/close.png);background-repeat:no-repeat;background-position:center center;background-size:90%}.pano_close:hover{background-image:url(https://api.map.baidu.com/images/panorama/close_hover.png)}.pano_pc_indoor_exit{position:absolute;right:60px;top:10px;width:89px;cursor:pointer;height:40px;line-height:40px;color:#ebedf0;border-radius:3px;background-color:#252525;background-color:rgba(37,37,37,.9);background-image:url(https://api.map.baidu.com/images/panorama/indoor_exit.png);background-repeat:no-repeat;background-position:15px 12px}.pano_pc_indoor_exit:hover{background-image:url(https://api.map.baidu.com/images/panorama/indoor_exit_hover.png);color:#2495ff}.pano_m_indoor_exit{font-size:16px;position:absolute;right:30px;top:10px;width:89px;cursor:pointer;height:40px;line-height:40px;color:#ebedf0;border-radius:3px;background-color:#252525;background-color:rgba(37,37,37,.9);background-image:url(https://api.map.baidu.com/images/panorama/indoor_exit.png);background-repeat:no-repeat;background-position:15px 12px}.navtrans-table tr{color:#666}.navtrans-table tr:hover{color:#333}.navtrans-navlist-icon{float:left;width:18px;height:18px;background:url(https://api.map.baidu.com/images/new-direction-icon.png) no-repeat -1px -1px;background-size: 130px 137px;_background:url(https://webmap0.bdimg.com/wolfman/static/common/images/nav-icon_ie6_134841b.png) no-repeat 0px 0px;margin-right:5px}.navtrans-navlist-icon.s-1{background-position:-1px -1px}.navtrans-navlist-icon.s-2{background-position:-19px -1px}.navtrans-navlist-icon.s-3{background-position:-36px -1px}.navtrans-navlist-icon.s-4{background-position:-54px -1px}.navtrans-navlist-icon.s-5{background-position:-73px -1px}.navtrans-navlist-icon.s-6{background-position:-91px -1px}.navtrans-navlist-icon.s-7{background-position:-1px -20px}.navtrans-navlist-icon.s-8{background-position:-19px -19px}.navtrans-navlist-icon.s-9{background-position:-37px -19px}.navtrans-navlist-icon.s-10{background-position:-54px -19px}.navtrans-navlist-icon.s-11{background-position:-72px -19px}.navtrans-navlist-icon.s-12{background-position:-90px -19px}.navtrans-navlist-icon.s-13{background-position:-1px -39px}.navtrans-navlist-icon.s-14{background-position:-19px -38px}.navtrans-navlist-icon.s-18{background-position:-38px -38px}.navtrans-navlist-icon.s-19{background-position:-56px -38px}.navtrans-navlist-icon.s-20{background-position:-74px -38px}.navtrans-navlist-icon.s-21{background-position:-92px -38px}.nav-st{margin-top: 2px;}.navtrans-navlist-icon.nav-st,.navtrans-navlist-icon.nav-through{background:url(https://webmap0.bdimg.com/wolfman/static/common/images/nav-icon_b5c3223.png) no-repeat 0px 0px;background-position:-18px -70px}.navtrans-navlist-icon.nav-ed{background:url(https://webmap0.bdimg.com/wolfman/static/common/images/nav-icon_b5c3223.png) no-repeat 0px 0px;background-position:-1px -70px}.navtrans-view{border-top:1px solid #e4e6e7;border-left:1px solid #e4e6e7;border-right:1px solid #e4e6e7}.navtrans-view:hover{cursor:pointer}.navtrans-view .navtrans-arrow{position:absolute;top:8px;right:5px;width:7px;height:4px;background-image:url(https://api.map.baidu.com/images/new-direction-icon.png);background-repeat:no-repeat;background-position:-40px -70px;margin-top:3px;margin-right:3px;_background-image:url(https://webmap0.bdimg.com/wolfman/static/common/images/nav-icon_ie6_134841b.png)}.navtrans-view.expand:hover .navtrans-arrow{background-position:-61px -70px}.navtrans-view.expand .navtrans-arrow{background-position:-54px -70px}.navtrans-view:hover .navtrans-arrow{background-position:-47px -70px}.navtrans-navlist-content{overflow:hidden}.navtrans-res{border-bottom:1px solid #E4E6E7;border-left:1px solid #E4E6E7;border-right:1px solid #E4E6E7}.navtrans-bus-icon{display:inline-block;float:left;background-image:url(https://webmap0.bdimg.com/wolfman/static/common/images/ui3/mo_banner_e1aa2e6.png);background-repeat:no-repeat;left:-5px}.navtrans-bus-icon.bus{background:url(https://api.map.baidu.com/images/new-direction-icon.png) no-repeat 0 0;background-size: 130px 137px; width:18px;height:18px;background-position:-55px -57px;position:relative;top:2px}.navtrans-bus-icon.walk{background:url(https://api.map.baidu.com/images/new-direction-icon.png) no-repeat 0 0;background-size: 130px 137px;width:18px;height:18px;background-position:-19px -57px;position:relative;top:2px;left:-5px}.navtrans-bus-desc{line-height:24px;margin-left:20px}.navtrans-busstation{color:#36c;font-weight:600}.tranroute-plan-list.expand .trans-title{border-bottom:1px solid #e4e6e7;background-color:#ebf1fb}.trans-plan-content tr td:hover .bus{background:url(https://api.map.baidu.com/images/new-direction-icon.png) no-repeat 0 0;background-size: 130px 137px;background-position:-37px -57px}.trans-plan-content tr td:hover .walk{background:url(https://api.map.baidu.com/images/new-direction-icon.png) no-repeat 0 0;background-size: 130px 137px; background-position:-1px -57px}.suggest-plan{position:absolute;background-color:#0C88E8;padding:0px 15px;line-height:20px;color:#fff;left:0px;top:0px}.suggest-plan-des{text-align:left;padding:29px 0px 0px 25px;font-size:13px;color:#000}.bmap-clearfix{*+height:1%}.bmap-clearfix:after{content:".";display:block;height:0px;clear:both;visibility:hidden}.bmap-link{width: 1px;height: 8px;display: inline-block;background: #C4C7CE;top: 19px;position: absolute;left: 9px; margin-left: -1px;}.BMap_CityListCtrl{font-size:12px}.BMap_CityListCtrl a{text-decoration:none!important}.BMap_CityListCtrl a:hover{text-decoration:underline!important}.BMap_CityListCtrl .citylist_popup_main{border:1px solid #cdcdcd;z-index:2;position:relative;width:100%;height:100%;background:#fafafa;overflow:hidden;box-shadow:1px 1px 1px rgba(0,0,0,.1)}.ui_city_change_top .ui_city_change_inner,.ui_city_change_bottom .ui_city_change_inner{display:inline-block;height:24px;line-height:24px;border:1px solid #c4c7cc;background-color:#fff;padding:0 10px 0 10px;color:#000}.ui_city_change_top .ui_city_change_inner i,.ui_city_change_bottom .ui_city_change_inner i{width:8px;height:6px;display:inline-block;position:relative;top:9px;left:5px;-webkit-transition:all ease-in-out .15s;transition:all ease-in-out .15s;display:none9}.ui_city_change_click .ui_city_change_inner i,.ui_city_change_click_close .ui_city_change_inner i{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg)}.ui_city_change_top .ui_city_change_inner:hover em{border-top-color:#0C88E8}.ui_city_change_top .ui_city_change_inner em{width:0;height:0;border-color:rgba(255,255,255,0);border-top-color:#D0D4DA;border-style:solid;border-width:4px}.ui_city_change_top .ui_city_change_inner:hover,.ui_city_change_bottom .ui_city_change_inner:hover{text-decoration:none!important;color:#3d6dcc}.ui_city_change_bottom .ui_city_change_inner:hover em{border-bottom-color:#0C88E8}.ui_city_change_bottom .ui_city_change_inner em{width:0;height:0;border-color:rgba(255,255,255,0);border-bottom-color:#D0D4DA;border-style:solid;border-width:4px;position:relative;top:-18px}.citylist_popup_main .citylist_ctr_title{background:#f9f9f9;border-bottom:1px solid #dadada;height:25px;line-height:25px;font-size:12px;color:#4c4c4c;padding-left:7px}.citylist_popup_main .city_content_top{position:relative;height:30px;padding:15px 10px 0px 10px;border-bottom:1px solid #CCC;margin:0px 10px}.citylist_popup_main .city_content_top .cur_city_info{display:inline-block;margin:0;padding:0;}#city_ctrl_form{position:absolute;right:12px;top:10px}#selCityWd{border:1px solid #ccc;height:20px;width:121px;line-height:20px;text-indent:4px;outline:none}#selCitySubmit:hover{background-position:-355px -98px}#selCitySubmit{float:right;background:url(https://webmap0.bdimg.com/wolfman/static/common/images/index_a2f1ac4.png) no-repeat scroll -302px -98px;height:24px;line-height:24px;width:48px;cursor:pointer;margin-left:5px;text-align:center}#sel_city_letter_list{padding-top:10px}#sel_city_letter_list a{white-space:nowrap;margin-right:11px;line-height:18px;font-size:13px;font-family:Arial,Helvetica,SimSun,sans-serif}.city_content_medium{padding:10px 10px 10px 10px;border-bottom:1px solid #CCC;margin:0px 10px}.city_content_bottom{padding:10px 10px 10px 8px;margin:9px 5px 5px 5px;height:218px;overflow-y:auto}#city_detail_table tr td{vertical-align:top}.sel_city_hotcity a{color:#3d6dcc}.sel_city_letter{padding:0 14px 0 3px}.sel_city_letter div{font-size:24px;line-height:24px;font-weight:700;color:#ccc;padding:0;margin:0;font-family:Arial,Helvetica,SimSun,sans-serif}.sel_city_sf{padding-right:8px;font-weight:700}.sel_city_sf a{white-space:nowrap;line-height:18px;color:#3d6dcc}.city_names_wrap{margin-bottom:9px}.sel_city_name{color:#3d6dcc;white-space:nowrap;margin-right:9px;line-height:18px;float:left}#popup_close{outline:none;position:absolute;z-index:50;top:7px;right:6px;width:12px;height:12px;background:url(https://webmap0.bdimg.com/wolfman/static/common/images/popup_close_15d2283.gif) no-repeat;border:0;cursor:pointer}</style><script charset="utf8" src="./map_files/abclite-2063-s.original.js"></script><script type="text/javascript" charset="utf-8" src="./map_files/saved_resource"></script></head>
+<body>
+   <div id="daohang"><img class="mdui-img-fluid mdui-center" src="./map_files/logo.jpg"></div>
+	<div id="allmap" style="overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"><div style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;https://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;"><div class="BMap_mask" style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; user-select: none; width: 1455px; height: 638px;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 87px; height: 113px; left: 685px; top: 263px; z-index: 10669984;" title=""></span><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 18px; height: 18px; left: 300px; top: 139px; z-index: 37000000; user-select: none; display: none;" title=""></span><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 87px; height: 113px; left: 648px; top: 243px; z-index: 10666336; user-select: none;" title=""></span><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 87px; height: 113px; left: 691px; top: 279px; z-index: 10672976; user-select: none;" title=""></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"><label class="BMapLabel" unselectable="on" style="position: absolute; display: none; cursor: inherit; background-color: rgb(190, 190, 190); border: 1px solid rgb(190, 190, 190); padding: 1px; white-space: nowrap; font: 12px arial, sans-serif; z-index: -20000; color: rgb(190, 190, 190);">shadow</label><label class="BMapLabel" unselectable="on" style="position: absolute; display: none; cursor: inherit; background-color: rgb(255, 255, 225); border: 1px solid rgb(140, 140, 140); padding: 1px; white-space: nowrap; font: 12px arial, sans-serif; z-index: 80; user-select: none; color: rgb(77, 77, 77);">点击可查看详情</label></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 685px; top: 263px; z-index: 10669984;"><div style="position: absolute; margin: 0px; padding: 0px; width: 87px; height: 113px; overflow: hidden;"><img src="./map_files/local.png" style="display: block; border:none;margin-left:0px; margin-top:0px; "></div></span><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 300px; top: 139px; z-index: 37000000; display: none;"><div style="position: absolute; margin: 0px; padding: 0px; width: 18px; height: 18px; overflow: hidden;"><img src="./map_files/spotmkrs.png" style="display: block; border:none;margin-left:-166px; margin-top:0px; "></div></span><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 648px; top: 243px; z-index: 10666336;"><div style="position: absolute; margin: 0px; padding: 0px; width: 87px; height: 113px; overflow: hidden;"><img src="./map_files/icon.png" style="display: block; border:none;margin-left:0px; margin-top:0px; "></div></span><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 691px; top: 279px; z-index: 10672976;"><div style="position: absolute; margin: 0px; padding: 0px; width: 87px; height: 113px; overflow: hidden;"><img src="./map_files/icon.png" style="display: block; border:none;margin-left:0px; margin-top:0px; "></div></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 201;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><svg version="1.1" type="system" x="2455px" y="1638px" viewBox="-500 -500 2455 1638" style="position: absolute; top: -500px; left: -500px; width: 2455px; height: 1638px;"><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" stroke="#e60012" stroke-width="2" stroke-dasharray="none" fill="none" stroke-opacity="0.65" fill-opacity="0.4" style="cursor: pointer; user-select: none;" d="M 502 311 L 503 312 503 317 503 318 504 319 505 319 505 320 506 321 504 324 504 326 503 327 503 328 503 329 505 329 506 330 506 331 504 331 504 332 504 333 505 333 506 334 507 335 508 336 508 337 507 343 507 347 507 350 507 351 508 352 509 352 510 353 510 354 509 354 508 354 507 354 506 353 504 354 502 354 501 355 500 356 499 360 498 360 495 361 490 361 488 361 487 362 488 363 489 363 490 364 491 366 493 367 494 367 497 366 499 366 500 365 502 365 505 365 506 366 507 366 508 366 509 366 509 367 508 370 507 371 505 372 504 373 502 373 501 374 501 375 501 376 502 377 503 378 503 379 503 381 505 382 506 383 506 384 505 384 504 385 503 385 503 386 505 386 506 386 508 388 508 390 507 390 506 390 505 390 504 388 502 388 501 387 500 387 500 388 499 389 498 390 498 391 496 393 495 393 493 392 492 393 492 394 491 395 490 396 490 397 490 400 491 401 492 401 493 401 494 401 496 402 497 404 499 404 500 404 501 404 502 404 505 407 508 408 512 409 512 410 513 410 514 412 515 413 518 412 519 410 520 407 520 405 521 404 524 402 525 401 526 401 527 401 528 401 530 402 532 403 532 405 533 405 534 405 534 404 535 402 536 402 538 403 540 404 541 403 542 403 541 401 540 400 540 399 541 399 541 398 542 398 543 397 542 395 542 394 541 393 542 393 542 392 546 391 548 390 549 389 550 389 551 390 552 391 553 392 553 393 553 395 554 397 555 397 556 397 557 396 558 396 559 396 562 398 563 399 564 399 565 399 567 402 568 404 569 405 574 404 576 403 577 402 578 402 579 403 580 403 584 401 585 401 586 401 588 401 588 402 589 403 592 402 596 404 597 404 598 404 598 403 598 402 595 401 595 400 596 399 596 398 597 397 600 397 601 396 602 394 603 391 603 388 604 387 604 386 605 384 606 381 606 380 605 379 605 378 607 375 608 374 608 373 609 374 611 372 612 371 613 371 615 372 618 373 618 372 618 371 619 371 621 370 623 370 624 371 625 370 626 370 627 370 627 371 628 371 629 371 629 376 630 376 631 378 632 379 634 380 636 380 636 379 636 378 637 378 638 378 639 377 640 379 640 380 648 383 649 384 648 386 649 386 649 387 650 388 652 389 653 389 654 389 657 389 658 388 659 387 660 386 660 387 661 387 662 387 664 387 664 388 665 389 668 390 669 391 669 392 668 393 667 395 667 396 668 396 670 397 671 398 672 399 671 400 671 401 672 402 673 403 673 404 673 405 676 406 679 407 681 409 683 410 683 411 683 412 683 413 682 414 680 414 680 415 680 416 680 417 680 418 681 419 683 420 685 422 686 423 687 423 688 423 689 422 690 422 690 423 691 424 692 424 696 423 697 423 698 426 699 427 700 427 701 427 702 428 702 429 701 431 701 432 701 433 701 434 702 434 705 433 707 434 707 435 706 435 705 436 705 437 705 438 706 439 706 440 709 440 710 441 710 442 710 443 709 446 709 448 708 450 704 452 703 453 701 453 700 453 699 455 698 456 696 458 694 459 692 460 690 460 689 459 688 461 688 462 686 461 685 462 685 463 684 465 680 465 679 465 679 466 679 467 677 467 676 468 675 469 674 469 675 470 676 471 677 472 679 474 680 474 683 474 685 475 687 476 688 477 688 478 688 479 689 480 690 479 691 478 692 478 692 479 691 481 690 482 691 485 691 486 691 488 692 489 694 491 696 492 697 492 697 494 698 495 698 496 699 496 701 496 701 497 700 497 700 498 701 498 704 499 705 500 707 500 708 500 709 498 711 498 713 499 714 499 716 500 717 500 719 498 720 498 720 499 721 500 722 501 723 502 723 503 722 503 721 503 720 503 720 504 719 506 720 506 724 506 725 506 725 505 726 505 730 505 731 505 732 508 733 508 735 508 736 508 736 509 737 510 737 511 737 512 737 513 738 514 739 514 740 513 741 512 742 512 742 513 742 515 741 516 741 517 742 518 743 518 743 521 743 524 743 525 748 526 753 528 754 529 755 530 758 532 759 532 760 532 762 531 769 536 770 537 774 536 775 536 777 537 778 537 779 536 780 535 780 534 784 533 785 531 790 527 793 525 794 525 796 525 798 527 801 529 802 529 805 528 809 529 812 530 813 530 814 530 817 529 817 528 817 527 818 527 819 527 821 528 823 528 824 529 825 529 825 530 826 531 827 531 829 530 831 531 832 531 837 535 839 536 841 536 842 537 843 538 843 540 843 543 844 546 844 547 844 548 842 549 841 549 840 551 840 553 838 553 837 554 837 556 839 562 840 563 841 563 841 565 842 566 844 567 844 569 845 571 846 573 846 575 846 576 844 578 844 579 846 582 846 585 847 586 848 588 851 592 851 593 853 593 855 593 857 592 858 592 858 591 858 589 858 588 859 587 860 586 861 586 863 586 867 583 870 582 874 581 875 580 875 578 877 576 878 576 878 574 877 573 876 572 877 571 877 568 878 567 882 567 884 566 886 564 887 563 888 562 890 562 891 563 892 563 892 564 892 566 893 567 893 569 893 570 893 571 894 573 895 574 896 575 895 577 895 585 896 590 897 592 898 593 899 593 901 593 903 592 905 591 907 589 910 588 913 587 917 587 918 587 921 586 923 585 924 585 928 587 929 588 930 589 930 590 929 591 928 592 928 593 927 596 925 600 925 601 925 603 925 605 926 606 926 607 928 608 931 608 932 608 935 608 936 609 937 608 937 609 938 608 939 607 939 606 937 605 936 604 936 603 937 602 938 601 940 599 941 599 942 599 943 599 943 600 944 601 945 601 947 600 947 599 947 597 948 596 949 596 951 596 952 596 952 595 953 593 953 592 957 592 959 591 960 592 961 592 962 592 963 592 965 593 965 592 966 592 966 591 967 586 970 585 970 584 970 583 971 582 973 581 975 581 975 580 974 578 974 576 975 575 973 575 972 574 972 573 973 572 974 571 974 570 970 567 967 567 967 568 967 569 967 570 966 571 965 572 964 573 961 572 960 572 958 572 958 573 957 574 956 574 954 574 954 573 953 572 952 569 952 567 953 562 953 561 953 560 954 558 955 557 955 554 955 551 955 550 956 549 957 548 958 547 959 547 959 546 958 545 958 544 959 543 959 542 958 540 957 534 956 531 955 529 954 528 954 526 956 525 958 524 959 524 959 523 959 521 959 520 958 518 957 515 958 514 959 513 958 512 956 509 955 509 953 509 952 508 951 506 949 506 949 505 951 503 949 503 948 503 947 501 946 499 944 498 944 497 945 496 945 495 944 494 943 492 944 491 944 489 944 488 943 487 942 486 942 485 942 483 942 481 942 480 943 479 945 478 946 478 946 477 946 476 943 474 942 474 941 473 941 472 941 471 940 471 940 470 940 469 939 468 937 467 937 466 938 466 939 466 939 465 939 464 939 463 940 462 942 460 941 458 940 457 939 457 939 456 940 455 940 454 939 453 938 453 938 452 939 450 939 447 940 447 941 446 944 444 946 443 947 442 949 441 949 439 949 438 949 435 949 434 951 431 950 431 949 431 948 431 947 433 947 432 946 431 943 432 941 430 940 430 938 429 932 426 931 426 928 426 927 425 924 425 923 424 923 422 923 421 921 416 921 414 920 414 919 413 918 412 917 411 918 410 918 409 917 408 916 408 915 409 914 409 914 406 912 401 912 399 913 398 913 395 913 391 914 390 915 389 917 388 918 387 917 387 917 386 914 385 911 385 910 384 910 382 910 380 913 374 914 372 918 369 921 367 924 364 928 358 929 356 932 353 933 352 935 351 938 351 942 349 943 348 943 347 944 346 944 344 940 338 938 335 939 331 939 329 938 328 936 327 936 326 936 325 935 325 934 325 933 327 932 327 931 326 930 325 930 324 930 323 931 322 930 321 929 322 928 322 927 321 926 321 925 325 924 327 920 329 920 330 919 332 919 333 917 333 917 332 917 330 916 330 915 330 914 329 915 327 918 327 919 327 920 326 921 326 922 326 923 324 923 323 923 322 920 321 923 318 923 316 922 315 922 314 920 314 920 313 920 312 921 311 921 310 921 309 921 308 921 307 920 307 918 307 916 306 915 304 913 301 912 300 912 299 911 299 909 300 907 300 905 300 903 302 899 303 898 303 897 302 895 302 893 300 892 300 892 301 893 303 893 305 892 305 892 306 891 305 890 304 888 296 885 295 885 293 885 292 884 292 880 293 879 293 879 292 880 291 879 290 879 289 877 285 877 284 878 283 877 283 875 282 874 280 874 277 873 277 871 277 869 277 869 276 867 274 865 273 866 271 866 270 866 269 865 269 865 268 863 268 861 266 860 265 860 263 859 261 859 259 859 257 858 253 858 250 858 248 858 247 858 246 857 245 855 244 854 244 853 245 852 245 852 244 852 242 852 241 851 240 850 240 848 238 844 235 843 235 842 236 841 236 840 236 839 236 838 236 837 233 836 233 835 233 833 233 833 234 833 236 833 237 831 238 830 238 829 238 829 237 828 237 827 239 825 240 822 242 819 246 817 246 816 246 814 246 813 245 811 243 810 243 810 241 809 239 809 238 808 238 807 238 807 240 806 240 804 241 802 241 800 241 801 239 801 237 801 236 800 235 800 232 800 231 799 231 799 232 798 233 797 234 795 232 792 230 791 230 790 231 790 232 789 232 787 230 785 229 782 228 780 228 779 229 779 230 778 233 777 235 776 236 775 238 773 238 772 239 767 238 765 238 764 237 764 236 764 235 765 234 765 232 765 231 765 228 764 227 763 226 761 225 759 223 758 223 755 223 754 223 754 222 754 221 753 219 753 218 753 216 754 215 757 213 757 211 758 207 760 206 760 203 759 202 758 202 757 202 754 203 753 204 752 205 751 205 750 205 750 206 747 207 746 207 745 207 744 206 741 205 740 204 740 203 738 202 739 201 738 201 738 200 736 200 736 199 736 197 735 196 733 193 730 191 729 192 727 193 727 195 727 196 729 199 729 200 728 200 727 200 724 198 723 198 722 199 720 200 720 201 721 202 720 203 717 204 715 204 714 204 713 204 713 203 713 202 712 202 711 202 711 203 711 204 710 205 709 207 706 209 705 210 705 211 704 212 703 213 705 222 703 222 703 223 703 224 704 225 707 227 707 228 707 229 706 229 705 229 704 229 704 231 704 232 703 232 703 233 704 235 705 236 705 237 706 238 708 239 709 239 710 238 711 237 712 238 712 239 713 241 712 242 713 243 715 245 716 246 717 247 717 248 716 252 716 253 715 254 714 254 714 255 716 255 716 256 716 257 715 258 714 258 713 258 713 259 712 260 711 261 710 261 708 261 707 260 706 261 705 261 704 261 704 260 703 260 702 260 702 263 702 264 701 264 700 263 700 262 700 260 699 260 698 261 698 264 697 265 696 265 695 265 694 265 693 264 692 263 691 263 690 263 690 264 689 265 689 266 688 266 687 265 686 265 684 267 681 268 680 268 678 268 677 268 677 269 677 270 676 270 675 270 674 269 673 269 672 270 672 271 671 272 670 272 666 273 665 273 662 272 661 271 660 271 658 271 658 272 658 273 657 273 656 273 655 272 654 274 653 275 653 276 653 278 653 279 653 280 655 282 655 284 656 287 656 289 656 293 656 298 655 302 653 305 651 308 648 310 646 313 645 315 645 317 644 321 643 321 640 322 640 321 639 320 638 319 637 319 635 319 634 318 632 316 630 314 629 314 628 315 627 315 626 316 625 315 624 315 616 315 615 315 613 316 612 316 612 314 612 313 610 313 609 312 609 311 608 311 606 312 605 312 604 314 603 315 602 315 600 315 599 316 598 316 597 316 596 316 595 316 595 315 595 314 592 314 588 312 586 312 585 313 584 313 583 314 582 313 582 312 581 311 579 311 577 311 570 314 569 314 567 314 566 313 565 313 564 313 563 313 562 313 562 312 562 311 562 310 563 308 563 304 564 302 564 301 565 300 565 299 565 298 564 295 563 295 562 296 561 296 560 297 558 297 558 298 557 298 557 299 558 304 557 305 556 306 555 306 554 306 552 305 551 303 551 301 550 301 549 302 548 301 547 300 546 300 544 301 544 302 543 302 542 301 541 301 540 302 540 303 541 305 540 305 539 305 538 305 537 305 536 307 536 308 535 309 535 310 534 310 530 309 528 308 525 309 519 309 518 309 517 308 516 308 515 307 514 307 510 309 508 310 506 310 504 309 503 310 502 311"></path></svg></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 1;"><div style="position: absolute; overflow: visible; z-index: -100; left: 728px; top: 319px; display: block; transform: translate3d(0px, 0px, 0px);"><img src="./map_files/saved_resource(1)" style="position: absolute; border: none; width: 256px; height: 256px; left: -200px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(2)" style="position: absolute; border: none; width: 256px; height: 256px; left: -456px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(3)" style="position: absolute; border: none; width: 256px; height: 256px; left: 56px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(4)" style="position: absolute; border: none; width: 256px; height: 256px; left: -200px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(5)" style="position: absolute; border: none; width: 256px; height: 256px; left: -200px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(6)" style="position: absolute; border: none; width: 256px; height: 256px; left: -712px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(7)" style="position: absolute; border: none; width: 256px; height: 256px; left: 312px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(8)" style="position: absolute; border: none; width: 256px; height: 256px; left: -456px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(9)" style="position: absolute; border: none; width: 256px; height: 256px; left: -456px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(10)" style="position: absolute; border: none; width: 256px; height: 256px; left: 56px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(11)" style="position: absolute; border: none; width: 256px; height: 256px; left: 56px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(12)" style="position: absolute; border: none; width: 256px; height: 256px; left: -200px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(13)" style="position: absolute; border: none; width: 256px; height: 256px; left: -968px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(14)" style="position: absolute; border: none; width: 256px; height: 256px; left: 568px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(15)" style="position: absolute; border: none; width: 256px; height: 256px; left: -712px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(16)" style="position: absolute; border: none; width: 256px; height: 256px; left: -712px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(17)" style="position: absolute; border: none; width: 256px; height: 256px; left: 312px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(18)" style="position: absolute; border: none; width: 256px; height: 256px; left: 312px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(19)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1224px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(20)" style="position: absolute; border: none; width: 256px; height: 256px; left: -456px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(21)" style="position: absolute; border: none; width: 256px; height: 256px; left: 56px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(22)" style="position: absolute; border: none; width: 256px; height: 256px; left: 824px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(23)" style="position: absolute; border: none; width: 256px; height: 256px; left: -968px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(24)" style="position: absolute; border: none; width: 256px; height: 256px; left: -968px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(25)" style="position: absolute; border: none; width: 256px; height: 256px; left: 568px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(26)" style="position: absolute; border: none; width: 256px; height: 256px; left: 568px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(27)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1480px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(28)" style="position: absolute; border: none; width: 256px; height: 256px; left: -712px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(29)" style="position: absolute; border: none; width: 256px; height: 256px; left: 312px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(30)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1080px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(31)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1224px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(32)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1224px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(33)" style="position: absolute; border: none; width: 256px; height: 256px; left: 824px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(34)" style="position: absolute; border: none; width: 256px; height: 256px; left: 824px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(35)" style="position: absolute; border: none; width: 256px; height: 256px; left: -968px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(36)" style="position: absolute; border: none; width: 256px; height: 256px; left: 568px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(37)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1336px; top: -204px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(38)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1480px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(39)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1480px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(40)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1080px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(41)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1080px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(42)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1224px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(43)" style="position: absolute; border: none; width: 256px; height: 256px; left: 824px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(44)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1336px; top: 52px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(45)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1336px; top: -460px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(46)" style="position: absolute; border: none; width: 256px; height: 256px; left: -1480px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(47)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1080px; top: 308px; max-width: none; opacity: 1;"><img src="./map_files/saved_resource(48)" style="position: absolute; border: none; width: 256px; height: 256px; left: 1336px; top: 308px; max-width: none; opacity: 1;"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 2; display: none;"><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 0; display: none;"></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 10; display: none;"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 3;"></div></div><div class="pano_close" title="退出全景" style="z-index: 1201; display: none;"></div><a class="pano_pc_indoor_exit" title="退出室内景" style="z-index: 1201; display: none;"><span style="float:right;margin-right:12px;">出口</span></a><div class=" anchorBL" style="height: 32px; position: absolute; z-index: 30; text-size-adjust: none; inset: auto auto 20px 1px;"><a title="到百度地图查看此区域" target="_blank" href="http://map.baidu.com/?sr=1" style="outline: none;"><img style="border:none;width:77px;height:32px" src="./map_files/copyright_logo.png"></a></div><div class=" BMap_noprint" style="top: 50%; left: 50%; display: none; padding: 24px; overflow: visible; position: absolute; width: 50%; max-width: 360px; transform: translate(-50%, -100%); z-index: 9999; background: rgb(255, 255, 255); text-size-adjust: none;"><div style="position: relative; width: 100%; height: 100%; color: rgb(0, 0, 0); font-size: 14px;"></div><span style="margin-top: 12px; margin-bottom: -12px; margin-left: calc(100% - 48px); width: 56px; height: 32px; font-size: 14px; text-align: center; line-height: 32px; display: block; cursor: pointer; background: rgb(56, 148, 255); border: 1px solid rgba(63, 81, 181, 0.23); color: rgb(255, 255, 255); border-radius: 3px;">确定</span></div><div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(https://api.map.baidu.com/images/openhand.cur) 8 8,default"><div class="BMap_zoomer" style="top:0;left:0;"></div><div class="BMap_zoomer" style="top:0;right:0;"></div><div class="BMap_zoomer" style="bottom:0;left:0;"></div><div class="BMap_zoomer" style="bottom:0;right:0;"></div></div><div unselectable="on" class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL" style="width: 62px; height: 186px; inset: 10px auto auto 10px; position: absolute; z-index: 1100; text-size-adjust: none;"><div class="BMap_stdMpPan"><div class="BMap_button BMap_panN" title="向上平移"></div><div class="BMap_button BMap_panW" title="向左平移"></div><div class="BMap_button BMap_panE" title="向右平移"></div><div class="BMap_button BMap_panS" title="向下平移"></div><div class="BMap_stdMpPanBg BMap_smcbg"></div></div><div class="BMap_stdMpZoom" style="height: 141px; width: 62px;"><div class="BMap_button BMap_stdMpZoomIn" title="放大一级"><div class="BMap_smcbg"></div></div><div class="BMap_button BMap_stdMpZoomOut" title="缩小一级" style="top: 120px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSlider" style="height: 102px;"><div class="BMap_stdMpSliderBgTop" style="height: 102px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSliderBgBot" style="top: 49px; height: 57px;"></div><div class="BMap_stdMpSliderMask" title="放置到此级别"></div><div class="BMap_stdMpSliderBar" title="拖动缩放" style="cursor: url(&quot;https://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default; top: 49px;"><div class="BMap_smcbg"></div></div></div><div class="BMap_zlHolder"><div class="BMap_zlSt"><div class="BMap_smcbg"></div></div><div class="BMap_zlCity"><div class="BMap_smcbg"></div></div><div class="BMap_zlProv"><div class="BMap_smcbg"></div></div><div class="BMap_zlCountry"><div class="BMap_smcbg"></div></div></div></div><div class="BMap_stdMpGeolocation" style="position: initial; display: none; margin-top: 43px; margin-left: 10px;"><div class="BMap_geolocationContainer" style="position: initial; width: 24px; height: 24px; overflow: hidden; margin: 0px; box-sizing: border-box;"><div class="BMap_geolocationIconBackground" style="width: 24px; height: 24px; background-image: url(https://api.map.baidu.com/images/navigation-control/geolocation-control/pc/bg-20x20.png); background-size: 20px 20px; background-position: 3px 3px; background-repeat: no-repeat;"><div class="BMap_geolocationIcon" style="position: initial; width: 24px; height: 24px; cursor: pointer; background-image: url(&#39;https://api.map.baidu.com/images/navigation-control/geolocation-control/pc/success-10x10.png&#39;); background-size: 10px 10px; background-repeat: no-repeat; background-position: center;"></div></div></div></div></div><div unselectable="on" class=" BMap_cpyCtrl BMap_noprint anchorBL" style="cursor: default; white-space: nowrap; color: black; background: none; font: 11px / 15px arial, sans-serif; inset: auto auto 2px 2px; position: absolute; z-index: 10; text-size-adjust: none;"><span _cid="1" style="display: inline;"><span style="background: rgba(255, 255, 255, 0.701961);padding: 0px 1px;line-height: 16px;display: inline;height: 16px;">©&nbsp;2023 Baidu - GS(2023)3206号 - 甲测资字11111342 - 京ICP证030173号 - Data © 百度智图</span></span></div></div>
+	<div id="btngp">
+		<button class="layui-btn layui-btn-sm" id="fl3" data-id="0" style="background-color:#87c8ff;">所有类目</button><br>
+		<button class="layui-btn layui-btn-sm" id="fl1" data-id="5" style="background-color:#87c8ff;">思想政治体检</button><br>
+		<button class="layui-btn layui-btn-sm" id="fl1" data-id="1" style="background-color:#87c8ff;">农村党建</button><br>
+		<button class="layui-btn layui-btn-sm" id="fl2" data-id="2" style="background-color:#87c8ff;">城市党建</button><br>
+		<button class="layui-btn layui-btn-sm" id="fl3" data-id="3" style="background-color:#87c8ff;">两新党建</button><br>
+		<button class="layui-btn layui-btn-sm" id="fl3" data-id="4" style="background-color:#87c8ff;">党性党史</button>
+	</div>
+    <div id="logi">
+		<a href="http://dj.web0533.cn/index/"><button class="layui-btn layui-btn-sm" style="background-color:#87c8ff;">参观学习&gt;&gt;&gt;</button></a>
+	</div>
+	<!-- 弹出层开始 -->
+
+	<div class="popbox">
+					<div class="" style="border:1px solid #cbcbcb;">
+							<div class="" style="">
+				<i class="layui-icon layui-icon-down closepanel" style="font-size: 30px; color: #1E9FFF;padding:0 80px;"></i>  <a class="guid" href="https://dj.web0533.cn/index/map/"><img src="./map_files/001.png" class="mdui-float-right" style="height: 40px; position:relative;top:-20px;margin-right: 10px;"></a></div>
+							<div class="" style="padding:10px;height: 22px;line-height: 22px;overflow: hidden;"><h2 class="mdui-text-truncate name"></h2></div>
+							<div class="" style="padding-left: 10px;padding-bottom: 10px;"><img src="./map_files/weizhi.jpg" style="width:20px;padding-right: 10px;margin:5px 0;"><h3 class="layui-inline mdui-text-truncate dizhii"></h3></div>
+							<div class="" style="padding-left: 10px;padding-bottom: 10px;"><img src="./map_files/tel.jpg" style="width:20px;padding-right:10px ;margin:5px 0;"><h3 class="layui-inline tel"></h3></div>
+							<div class="" style="border-top:1px solid #cbcbcb;padding:10px;">
+								<div class="layui-inline" style="width: 50%;text-align: center;"><a class="guid" href="https://dj.web0533.cn/index/map/"><img src="./map_files/daohang.jpg" style="width: 80px;"></a></div>
+								<div class="layui-inline"><a class="links" href="https://dj.web0533.cn/index/map/"><img src="./map_files/chakan.jpg" style="width:80px;"></a></div>
+							</div>
+						</div>
+				
+		</div>
+		
+
+			
+
+
+	<!-- 弹出层结束 -->
+
+
+
+<script type="text/javascript">
+
+	var aJsonData ={
+		1:[
+			{
+				name:'昆仑镇奎三村走全体人民共同富裕道路教育基地',
+				position:'117.944951,36.569706',
+				link:'http://dj.web0533.cn/index/kuisan.html',
+				dizhi:'淄川区昆仑镇奎三村（张博公路昆仑至西河路口向东三公里处）',
+				phone:'13953338136'
+			},
+			{
+				name:'洪山镇土峪村生态宜居美丽乡村建设体验基地',
+				position:'118.047474,36.58607',
+				link:'http://dj.web0533.cn/index/tuyu.html',
+				dizhi:'淄川区洪山镇洪张路东1.5公里土峪村村委 ',
+				phone:'18560703310'
+			},
+			{
+				name:'龙泉镇韩庄村治村经验互动教育基地',
+				position:'117.996084,36.613438',
+				link:'http://dj.web0533.cn/index/hanzhuang.html',
+				dizhi:'龙泉镇韩庄村委',
+				phone:'18560702622'
+			},
+			{
+				name:'西河镇东庄村“三生三美”践行“双山理论”体验点',
+				position:'118.084121,36.552042',
+				link:'http://dj.web0533.cn/index/dongzhuang.html',
+				dizhi:'淄川区西河镇东庄村（张庄）西侧广场',
+				phone:'18264381157'
+			},
+			{
+				name:'双杨镇赵瓦村基层党建引领乡村文明示范基地',
+				position:'117.996309,36.710743',
+				link:'http://dj.web0533.cn/index/zhaowa.html',
+				dizhi:'北京路南首，沿102省道向东1500米路南',
+				phone:'13953396941'
+			},
+			{
+				name:'昆仑镇东笠山村党建引领乡村振兴体验点',
+				position:'117.938786,36.585684',
+				link:'http://dj.web0533.cn/index/donglishan.html',
+				dizhi:'淄川区昆仑镇东笠山村委',
+				phone:'13864405878'
+			},
+			{
+				name:'淄川区牛记庵乡村记忆馆',
+				position:'117.814082,36.583404',
+				link:'http://dj.web0533.cn/index/niujian.html',
+				dizhi:'淄川区昆仑镇牛记庵度假村',
+				phone:'18369919333'
+			},
+			{
+				name:'淄川区双杨镇乡村振兴教育实践基地',
+				position:'118.01522,36.685916',
+				link:'http://dj.web0533.cn/index/xizhang.html',
+				dizhi:'淄川区双杨镇西张村村委',
+				phone:'17853320908'
+			},
+			{
+				name:'岭子镇宋家庄村史馆',
+				position:'117.762909,36.651523',
+				link:'http://dj.web0533.cn/index/songjia.html',
+				dizhi:'淄川区岭子镇宋家庄村委南240米',
+				phone:'13589503088'
+			},
+          {
+				name:'太河镇罗圈村八路军医院旧址党性教育点',
+				position:'118.167885,36.560831',
+				link:'http://dj.web0533.cn/index/luoquan.html',
+				dizhi:'淄川区太河镇罗圈村',
+				phone:'13853359595'
+			},
+          	{
+				name:'山东涌泉红色抗战教育点',
+				position:'118.137574,36.435361',
+				link:'http://dj.web0533.cn/index/yongquan.html',
+				dizhi:'淄川区太河镇永泉村',
+				phone:'13806481999'
+			},
+          {
+				name:'太河镇“联村党建服务中心”特色教育体验点',
+				position:'118.210806,36.422005',
+				link:'http://dj.web0533.cn/index/liancun.html',
+				dizhi:'淄川区太河镇前沟村',
+				phone:'13864421117'
+			},
+          {
+				name:'河南村党建引领文化振兴特色体验点',
+				position:'117.939591,36.506801',
+				link:'http://dj.web0533.cn/index/henancun.html',
+				dizhi:'淄川区西河镇河南村',
+				phone:'17685605523'
+			}
+		],
+		2:[
+          /**
+			{
+				name:'淄川城市基层党建暨党员政治生活教育基地',
+				position:'117.96226,36.628973',
+				link:'http://dj.web0533.cn/index/jiangjunlu.html',
+				dizhi:'将军路街道办事处查王村村委',
+				phone:'15206608766'
+			},
+            **/
+			{
+				name:'淄川经济开发区北苏社区以人民为中心服务群众教育基地',
+				position:'117.931291,36.668319',
+				link:'http://dj.web0533.cn/index/beisu.html',
+				dizhi:'张博路与胶王路交叉路口向西50米左转（淄川开发区办公楼对过）',
+				phone:'18553321327'
+			},
+			{
+				name:'将军路街道颐泽社区基层党建引领社区治理示范基地',
+				position:'117.981125,36.63512',
+				link:'http://dj.web0533.cn/index/yize.html',
+				dizhi:'将军路颐泽社区',
+				phone:'13581007479'
+			}	
+		],
+		3:[
+			{
+				name:'山东七河生物科技股份有限公司党建融合发展特色体验基地',
+				position:'117.913954,36.657897',
+				link:'http://dj.web0533.cn/index/qihe.html',
+				dizhi:'淄川经济开发区松陵西路496号（双泉社区对过）',
+				phone:'13864468021'
+			},
+			{
+				name:'山东金城集团党建引领转型发展动能转换教育基地',
+				position:'117.935296,36.669584',
+				link:'http://dj.web0533.cn/index/jincheng.html',
+				dizhi:'淄川经济开发区金城集团',
+				phone:'13665330790'
+			},
+			{
+				name:'山东新星集团激情创业创新教育体验基地',
+				position:'117.985412,36.666403',
+				link:'http://dj.web0533.cn/index/xinxing.html',
+				dizhi:'淄川区淄城路135号新星集团总部',
+				phone:'13953391399'
+			},
+          /**
+			{
+				name:'淄川区建设系统安全警示教育体验中心',
+				position:'118.003709,36.670579',
+				link:'http://dj.web0533.cn/index/jiansheju.html',
+				dizhi:'淄川区立交桥东400米路北',
+				phone:'0533-6125439'
+			},
+            **/
+			{
+				name:'淄川区社会组织孵化暨志愿服务教育体验中心',
+				position:'117.972099,36.646712',
+				link:'http://dj.web0533.cn/index/fuhuajidi.html',
+				dizhi:'淄川区般河街28号（原般阳路小学）',
+				phone:'15244167254'
+			},
+			{
+				name:'淄博蓼坞小米产业发展体验中心',
+				position:'118.158516,36.628431',
+				link:'http://dj.web0533.cn/index/liaowu.html',
+				dizhi:'淄川区寨里镇蓼坞村村委东南，沿S325省道700米路南',
+				phone:'18553333067'
+			},
+			{
+				name:'淄川区新阶层党旗红实践创新教育中心',
+				position:'117.927901,36.59776',
+				link:'http://dj.web0533.cn/index/1954.html',
+				dizhi:'淄川区昆仑镇1954文化创意园',
+				phone:'13054851110'
+			},
+			{
+				name:'“百年川鹰 红色民生”特色教育体验点',
+				position:'117.948103,36.681379',
+				link:'http://dj.web0533.cn/index/chuanying.html',
+				dizhi:'淄川经济开发区七星河路116号',
+				phone:'13034513456'
+			},
+          	{
+				name:'淄川久润富硒生态园践行“两山”理念现场教学点',
+				position:'118.006831,36.596526',
+				link:'http://dj.web0533.cn/index/jiurun.html',
+				dizhi:'淄川区龙泉镇大土屋村久润富硒生态园',
+				phone:'13173410808'
+			},
+          {
+				name:'齐艾健康文化产业园党建引领乡村振兴特色教育点',
+				position:'118.006403,36.504558',
+				link:'http://dj.web0533.cn/index/qiai.html',
+				dizhi:'淄川区西河镇东坪中心幼儿园对过',
+				phone:'13371597776'
+			},
+          {
+				name:'淄博市淄川区憨兜家园残疾人帮扶中心',
+				position:'117.993979,36.637835',
+				link:'http://dj.web0533.cn/index/handou.html',
+				dizhi:'淄博市淄川区淄矿路120号',
+				phone:'15864499551'
+			},
+          {
+				name:'山东黛青山生态农业科技有限公司',
+				position:'118.114167,36.697714',
+				link:'http://dj.web0533.cn/index/daiqingshan.html',
+				dizhi:'淄川区罗村镇黛青山',
+				phone:'13280603385'
+			}
+		],
+		4:[
+			{
+				name:'淄川区东牛角党史党性教育基地',
+				position:'117.727536,36.577501',
+				link:'http://dj.web0533.cn/index/dongniujiao.html',
+				dizhi:'淄川区岭子镇南部山区东牛角村',
+				phone:'0533-6673068'
+			},
+			{
+				name:'淄川烈士陵园',
+				position:'117.991364,36.644167',
+				link:'http://dj.web0533.cn/index/lingyuan.html',
+				dizhi:'淄川区烈士陵园',
+				phone:'13583365808'
+			},
+			{
+				name:'淄川区马鞍山抗日革命教育基地',
+				position:'118.101752,36.465751',
+				link:'http://dj.web0533.cn/index/maanshan.html',
+				dizhi:'淄川区太河镇东石门村东南2公里处',
+				phone:'18560887009'
+			},
+			{
+				name:'淄川区“夕阳映般阳”老有所为教育体验中心',
+				position:'117.967094,36.645128',
+				link:'http://dj.web0533.cn/index/banyang.html',
+				dizhi:'留仙湖公园凌虹桥南岸，区老干部活动中心',
+				phone:'18353311688'
+			},
+			{
+				name:'淄川区人民检察院法治文化教育教学中心',
+				position:'117.987963,36.632345',
+				link:'http://dj.web0533.cn/index/jianchayuan.html',
+				dizhi:'淄川区将军东路176号',
+				phone:'18553393178'
+			},
+			{
+				name:'党章学堂',
+				position:'117.976684,36.579549',
+				link:'http://dj.web0533.cn/index/dangzhangxuetang.html',
+				dizhi:'龙泉路庆升街西首',
+				phone:'18766975634'
+			},
+			{
+				name:'淄川区学党章思想政治体检中心',
+				position:'117.97648,36.579638',
+				link:'http://dj.web0533.cn/index/dangzhangtijian.html',
+				dizhi:'龙泉路庆升街西首',
+				phone:'13475575753'
+			},
+			{
+				name:'淄博煤矿博物馆党史教育中心',
+				position:'117.99585,36.644644',
+				link:'http://dj.web0533.cn/index/zikuang.html',
+				dizhi:'淄博市淄川区星火路36号',
+				phone:'15169243763'
+			},
+			{
+				name:'山东重山集团初心学堂奋斗精神教学示范点',
+				position:'118.098438,36.7067',
+				link:'http://dj.web0533.cn/index/chongshan.html',
+				dizhi:'淄川区罗村镇南韩工业园',
+				phone:'18353369389'
+			},
+			{
+				name:'淄川区太河水库艰苦奋斗纪念馆',
+				position:'118.135364,36.543262',
+				link:'http://dj.web0533.cn/index/taihe.html',
+				dizhi:'淄川区中小学社会实践活动基地（太河校区）',
+				phone:'13964442699'
+			},
+			{
+				name:'淄川区般阳清风廉政教育馆',
+				position:'117.931488,36.662369',
+				link:'http://dj.web0533.cn/index/lianzheng.html',
+				dizhi:'钟楼街道办事处北苏社区居民委员会附近',
+				phone:'18560880751'
+			},
+			{
+				name:'淄川区“行走的医生 流动的医院”党性教育示范点',
+				position:'118.071145,36.529899',
+				link:'http://dj.web0533.cn/index/zzwsy.html',
+				dizhi:'淄川区西河镇张庄村32号',
+				phone:'15269371161'
+			},	
+          {
+				name:'洪山镇马家村南庙大罢工展览馆',
+				position:'117.996028,36.630336',
+				link:'http://dj.web0533.cn/index/majiacun.html',
+				dizhi:'淄川区洪山镇马家村中街',
+				phone:'13031797822'
+			}
+		],
+		5:[
+			{
+				name:'淄川区党员干部思想政治体检馆',
+				position:'117.990794,36.671072',
+				link:'http://dj.web0533.cn/index/tijianguan.html',
+				dizhi:'新星集团物流集散中心二楼',
+				phone:'13953391399'
+			},
+			{
+				name:'淄博党员干部心理健康教育体验中心',
+				position:'117.990614,36.640143',
+				link:'http://dj.web0533.cn/index/xljk.html',
+				dizhi:'淄博市淄川区淄矿路102号',
+				phone:'18653345278'
+			},
+			{
+				name:'淄博师专党建引领、校城融合特色体验点',
+				position:'117.902813,36.666731',
+				link:'http://dj.web0533.cn/index/shizhuan.html',
+				dizhi:'淄川经济开发区唐骏欧铃路99号',
+				phone:'18653380121'
+			},
+          {
+				name:'山东水利技师学院新时代雷锋精神文化馆',
+				position:'117.900161,36.65982',
+				link:'http://dj.web0533.cn/index/shuili.html',
+				dizhi:'淄川区松龄西路498号',
+				phone:'0533-3825060'
+			},
+          {
+				name:'黄家峪惨案抗日革命党性教育点',
+				position:'117.74684,36.623146',
+				link:'http://dj.web0533.cn/index/huangjiayu.html',
+				dizhi:'淄川区岭子镇黄家峪村',
+				phone:'13506433032'
+			}
+		]
+	}
+
+	var aMarks = [];
+	var iLng = [];
+	var iLat = [];
+
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(117.973223,36.650072);
+	var myIcon = new BMap.Icon("map_files/local.png", new BMap.Size(87,113));
+	var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+				 map.addOverlay(marker);              // 将标注添加到地图中
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+		map.centerAndZoom(point,11); //默认打开的缩放级别
+		map.addControl(top_left_navigation); 
+
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			var mk = new BMap.Marker(r.point);
+				iLng = r.point.lng;
+				iLat = r.point.lat;
+			//map.addOverlay(mk); 添加定位点
+			//map.panTo(r.point); 平移地图 
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+	//
+	function getBoundary(){       
+		var bdary = new BMap.Boundary();
+		bdary.get("淄川区", function(rs){       //获取行政区域
+			//map.clearOverlays();        //清除地图覆盖物       
+			var count = rs.boundaries.length; //行政区域的点有多少个
+			if (count === 0) {
+				alert('未能获取当前输入行政区域');
+				return ;
+			}
+          	var pointArray = [];
+			for (var i = 0; i < count; i++) {
+				var ply = new BMap.Polygon(rs.boundaries[i], {
+				strokeWeight: 2, 
+				fillColor:'',  //背景色#dee4f0
+				strokeColor: "#e60012", //线填充色
+				fillOpacity:0.4 //填充色透明度
+				}); //建立多边形覆盖物
+				map.addOverlay(ply);  //添加覆盖物
+				pointArray = pointArray.concat(ply.getPath());
+			}    
+			//map.setViewport(pointArray);    //调整视野  
+			//addlabel();               
+		});   
+	}
+
+		getBoundary();
+
+	//声称标记点
+	creatMarks ();
+
+	function creatMarks ()
+	{
+		for (var i = 0 ; i < aMarks.length ; i ++)
+			{
+				map.removeOverlay(aMarks[i]);
+			}
+		aMarks =[];
+		for (arr in aJsonData)
+		{
+			for (var i = 0 ; i < aJsonData[arr].length; i++)
+			{
+				
+				var point = new BMap.Point(aJsonData[arr][i].position.split(',')[0],aJsonData[arr][i].position.split(',')[1]);
+				var myIcon = new BMap.Icon("img/icon.png", new BMap.Size(87,113));
+				var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+					marker.name = aJsonData[arr][i].name;
+					marker.link = aJsonData[arr][i].link;
+					marker.dizhi = aJsonData[arr][i].dizhi;
+					marker.phone = aJsonData[arr][i].phone;
+					marker.position = aJsonData[arr][i].position;
+					map.addOverlay(marker);              // 将标注添加到地图中
+					aMarks.push(marker);
+					
+			}
+
+			popEvent ();
+		}
+	}
+
+	//生成指定分类标记点
+	function creatTargetMark (id)
+	{
+		if(id==0)  //选择全部分类展示所有,请勿更改分类ID
+		{
+			creatMarks ();
+			return;
+		}
+		aMarks =[];
+		for (var i = 0 ; i < aJsonData[id].length; i++)
+			{
+				
+				var point = new BMap.Point(aJsonData[id][i].position.split(',')[0],aJsonData[id][i].position.split(',')[1]);
+				var myIcon = new BMap.Icon("img/icon.png", new BMap.Size(87,113));
+				var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+					marker.name = aJsonData[id][i].name;
+					marker.link = aJsonData[id][i].link;
+					marker.dizhi = aJsonData[id][i].dizhi;
+					marker.phone = aJsonData[id][i].phone;
+					marker.position = aJsonData[id][i].position;
+					map.addOverlay(marker);              // 将标注添加到地图中
+					aMarks.push(marker);
+					
+			}
+
+			popEvent ();
+	}
+
+	//分类事件
+	$('#btngp button').on('click',function () {
+
+		var iId = $(this).attr('data-id');
+
+			for (var i = 0 ; i < aMarks.length ; i ++)
+			{
+				map.removeOverlay(aMarks[i]);
+			}
+
+			creatTargetMark (iId);
+
+	});
+
+	//弹窗事件
+	function popEvent ()
+	{
+		for (var i = 0 ; i< aMarks.length; i++)
+		{
+			aMarks[i].addEventListener("click",function (data) {
+
+				var sName = this.name;
+				var iPhone = this.phone;
+				var iDizhi = this.dizhi;
+				var sLink = this.link;
+				var iEdLng = this.position.split(',')[0];
+				var iEdLat = this.position.split(',')[1];
+				var sGuid = 'http://api.map.baidu.com/direction?origin=latlng:'+iLat+','+iLng+'|name:我的位置&destination=latlng:'+iEdLat+','+iEdLng+'|name:'+sName+'&region=淄博&mode=driving&output=html&src=导航服务';
+
+					console.log(sName);
+					console.log(iPhone);
+					console.log(iDizhi);
+					console.log(sLink);
+					console.log(sGuid);
+				$('.popbox').find('.guid').attr('href',sGuid);
+				$('.popbox').find('.links').attr('href',sLink)
+				$('.popbox').find('.name').text(sName);
+				$('.popbox').find('.tel').text(iPhone)				
+				$('.popbox').find('.dizhii').text(iDizhi);
+				$('.popbox').show();	
+
+			});
+		}
+	}
+
+	$('.closepanel').on('click',function () {
+		$('.popbox').hide();
+	});
+
+	//http://api.map.baidu.com/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&output=html&src=yourCompanyName|yourAppName
+
+
+</script>
+</body></html>
